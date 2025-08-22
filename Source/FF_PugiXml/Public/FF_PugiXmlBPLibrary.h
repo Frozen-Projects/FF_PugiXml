@@ -76,8 +76,8 @@ class UFF_PugiXmlBPLibrary : public UBlueprintFunctionLibrary
 	* ADVANCED !
 	* DOCTYPE has to be only one in an XML and it's parent has to be directly document's itself.
 	* Function automatically check if there is a DOCTYPE in XML or not. If there is, it returns false.
-	* @param Out_Nodes This array contains three nodes. DTD delimiter, DOCTYPE, XML delimiter.
-	* @param CustomDefinition Function automatically adds <!DOCTYPE Name [ ... ]> you have to fill inside (ELEMENT and/or ATTLIST) yourself.
+	*  Out_Nodes This array contains three nodes. DTD delimiter, DOCTYPE, XML delimiter.
+	*  CustomDefinition Function automatically adds <!DOCTYPE Name [ ... ]> you have to fill inside (ELEMENT and/or ATTLIST) yourself.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Custom Doctype", Keywords = "pugixml, xml, document, node, add, doctype, custom"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_Doctype_Custom(TArray<UFFPugiXml_Node*>& Out_Nodes, UFFPugiXml_Doc* In_Doc, FString DoctypeName, FString CustomDefinition);
@@ -87,43 +87,43 @@ class UFF_PugiXmlBPLibrary : public UBlueprintFunctionLibrary
 	* DOCTYPE has to be only one in an XML and it's parent has to be directly document's itself.
 	* Function automatically check if there is a DOCTYPE in XML or not. If there is, it returns false.
 	* If you want to use this, use this only after adding all your stuffs to the XML.
-	* @param Out_Nodes This array contains three nodes. DTD delimiter, DOCTYPE, XML delimiter.
-	* @param bAddAttributes If you want to add attributes to the DTD list, check this true. But you must NOT USE any non-characters/symbols in attributes values.
+	*  Out_Nodes This array contains three nodes. DTD delimiter, DOCTYPE, XML delimiter.
+	*  bAddAttributes If you want to add attributes to the DTD list, check this true. But you must NOT USE any non-characters/symbols in attributes values.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Auto Doctype", Keywords = "pugixml, xml, document, node, add, doctype, auto"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_Doctype_Auto(TArray<UFFPugiXml_Node*>& Out_Nodes, UFFPugiXml_Doc* In_Doc, FString DoctypeName, bool bAddAttributes);
 
 	/**
-	* @param Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
-	* @param Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
+	*  Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
+	*  Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Node Element", Keywords = "pugixml, xml, document, node, add, element"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_Element(UFFPugiXml_Node*& Out_Node, EPugiXmlAddTypes AddType, UFFPugiXml_Doc* In_Doc, UFFPugiXml_Node* Parent_Node, UFFPugiXml_Node* Anchor_Node, FString NodeName, FString NodeValue, TMap<FString, FString> In_Attributes);
 
 	/**
-	* @param Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
-	* @param Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
+	*  Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
+	*  Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Node Comment", Keywords = "pugixml, xml, document, node, add, comment"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_Comment(UFFPugiXml_Node*& Out_Node, EPugiXmlAddTypes AddType, UFFPugiXml_Doc* In_Doc, UFFPugiXml_Node* Parent_Node, UFFPugiXml_Node* Anchor_Node, FString In_Comment);
 
 	/**
-	* @param Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
-	* @param Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
+	*  Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
+	*  Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Node Processing Instructions", Keywords = "pugixml, xml, document, node, add, pi, processing, instructions"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_Pi(UFFPugiXml_Node*& Out_Node, EPugiXmlAddTypes AddType, UFFPugiXml_Doc* In_Doc, UFFPugiXml_Node* Parent_Node, UFFPugiXml_Node* Anchor_Node, FString NodeName, FString NodeValue);
 
 	/**
-	* @param Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
-	* @param Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
+	*  Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
+	*  Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Node Plain Character", Keywords = "pugixml, xml, document, node, add, pcdata, plain, character"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_pcdata(UFFPugiXml_Node*& Out_Node, EPugiXmlAddTypes AddType, UFFPugiXml_Doc* In_Doc, UFFPugiXml_Node* Parent_Node, UFFPugiXml_Node* Anchor_Node, FString Value);
 
 	/**
-	* @param Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
-	* @param Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
+	*  Parent_Node (Optional and can be nullptr): If this is nullptr, added node will be direct chil of root or scheme element (if it is valid.)
+	*  Anchor_Node (Optional and can be nullptr): This should be one of children of "Parent Node" and you should use it only if you want to use "insert" features.
 	*/
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Pugixml - Add Node CDATA", Keywords = "pugixml, xml, document, node, add,  cdata"), Category = "Frozen Forest|FF_PugiXml|Write")
 	static FF_PUGIXML_API bool PugiXml_Node_Add_cdata(UFFPugiXml_Node*& Out_Node, EPugiXmlAddTypes AddType, UFFPugiXml_Doc* In_Doc, UFFPugiXml_Node* Parent_Node, UFFPugiXml_Node* Anchor_Node, FString Value);
