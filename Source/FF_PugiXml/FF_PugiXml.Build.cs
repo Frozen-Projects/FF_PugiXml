@@ -24,9 +24,7 @@ public class FF_PugiXml : ModuleRules
 			new string[]
 			{
 				"Core",
-				// ... add other public dependencies that you statically link with here ...
-			}
-			);
+			});
 			
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
@@ -35,15 +33,6 @@ public class FF_PugiXml : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
-				// ... add private dependencies that you statically link with here ...	
-			}
-			);
-		
-		DynamicallyLoadedModuleNames.AddRange(
-			new string[]
-			{
-				// ... add any modules that your module loads dynamically here ...
-			}
-			);
+			});
     }
 }
